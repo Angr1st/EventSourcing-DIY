@@ -11,12 +11,25 @@ module Menu =
     footerAction actionParam
     printfn ""
 
+  let setCursorColor () =
+    let defaultColor () =
+      Console.ForegroundColor <- ConsoleColor.White
+      Console.BackgroundColor <- ConsoleColor.DarkBlue
+
+    let powershellColor () =
+      Console.ForegroundColor <- ConsoleColor.Black
+      Console.BackgroundColor <- ConsoleColor.Red
+
+    match Console.BackgroundColor with
+    | ConsoleColor.Black -> defaultColor ()
+    | ConsoleColor.DarkMagenta -> powershellColor ()
+    | _ -> defaultColor ()
+
   let printMenu selected executionTable =
     executionTable
     |> Seq.iteri (fun index (name:string,_) ->
         if index = selected then
-          Console.ForegroundColor <- ConsoleColor.White
-          Console.BackgroundColor <- ConsoleColor.DarkBlue
+          setCursorColor ()
 
         Console.WriteLine (sprintf " %i. %s" (index + 1) name)
         Console.ResetColor())
