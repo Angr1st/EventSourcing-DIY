@@ -2,10 +2,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Program.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Update="Argu" Version="5.2.0" />
+    <PackageReference Update="Expecto" Version="8.7.0" />
+    <PackageReference Update="FSharp.Core" Version="4.6.0" />
+    <PackageReference Update="Microsoft.NETCore.Platforms" Version="2.2.0" />
+    <PackageReference Update="Mono.Cecil" Version="0.10.1" />
+    <PackageReference Update="System.Runtime.CompilerServices.Unsafe" Version="4.5.2" />
+    <PackageReference Update="System.Security.Principal.Windows" Version="4.5.1" />
   </ItemGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>
